@@ -1,16 +1,28 @@
 import styled from '@emotion/styled';
+import { useState } from 'react';
 
-import { TargetTypeButton } from './TargetTypeButton';
 import { RankTypeButton } from './RankTypeButton';
+import { TargetTypeButton } from './TargetTypeButton';
 
 export const GoodsRankingFilter = () => {
+  const [selectedTarget, setSelectedTarget] = useState('ALL');
+  const [selectedRank, setSelectedRank] = useState('MANY_WISH');
+  const rankTypes = [
+    { label: '받고 싶어한', value: 'MANY_WISH' },
+    { label: '많이 선물한', value: 'MANY_RECEIVED' },
+    { label: '위시로 받은', value: 'MANY_WISH_RECEIVED' },
+  ];
+
   return (
     <StyledGoodsRankingFilter>
       <TargetTypeContainer>
-        <TargetTypeButton value="ALL" selected={true} />
-        <TargetTypeButton value="FEMALE" selected={false} />
-        <TargetTypeButton value="MALE" selected={false} />
-        <TargetTypeButton value="TEEN" selected={false} />
+        {['ALL', 'FEMALE', 'MALE', 'TEEN'].map((item) => (
+          <TargetTypeButton
+            key={item}
+            value={item as 'ALL' | 'FEMALE' | 'MALE' | 'TEEN'}
+            selected={selectedTarget === item}
+          />
+        ))}
       </TargetTypeContainer>
       <div
         style={{
@@ -20,21 +32,14 @@ export const GoodsRankingFilter = () => {
         }}
       />
       <RankTypeContainer>
-        <RankTypeButton
-          label="받고 싶어한"
-          // value="MANY_WISH"
-          selected={true}
-        />
-        <RankTypeButton
-          label="많이 선물한"
-          // value="MANY_RECEIVED"
-          selected={false}
-        />
-        <RankTypeButton
-          label="위시로 받은"
-          // value="MANY_WISH_RECEIVED"
-          selected={false}
-        />
+        {rankTypes.map((rank) => (
+          <RankTypeButton
+            key={rank.value}
+            label={rank.label}
+            value={rank.value as 'MANY_WISH' | 'MANY_RECEIVED' | 'MANY_WISH_RECEIVED'}
+            selected={selectedRank === rank.value}
+          />
+        ))}
       </RankTypeContainer>
     </StyledGoodsRankingFilter>
   );

@@ -2,13 +2,14 @@ import styled from '@emotion/styled';
 
 type Props = {
   label: string;
-  //   value?: 'MANY_WISH' | 'MANY_RECEIVED' | 'MANY_WISH_RECEIVED';
+  value?: 'MANY_WISH' | 'MANY_RECEIVED' | 'MANY_WISH_RECEIVED';
   selected: boolean;
 };
 
-export const RankTypeButton = ({ label, selected }: Props) => {
+export const RankTypeButton = ({ label, value, selected }: Props) => {
   return (
     <StyledRankTypeButton
+      value={value}
       selected={selected}
       //   onClick={() => {
       //     onClick(value);
