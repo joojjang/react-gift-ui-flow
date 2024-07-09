@@ -4,7 +4,7 @@ export const Footer: React.FC = () => {
   return (
     <StyledFooter>
       <FooterContainer>
-        <TextContainer className="inner">
+        <TextContainer>
           <p>카카오톡 선물하기</p>
         </TextContainer>
       </FooterContainer>

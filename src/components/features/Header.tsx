@@ -20,7 +20,7 @@ export const Header = () => {
   return (
     <StyledHeader>
       <HeaderContainer>
-        <NavContainer className="inner">
+        <NavContainer>
           <a href="/">
             <Logo
               src="https://gift-s.kakaocdn.net/dn/gift/images/m640/pc_gift_logo.png"

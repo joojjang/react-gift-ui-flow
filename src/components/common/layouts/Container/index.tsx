@@ -18,7 +18,6 @@ export const Container: React.FC<Props> = forwardRef(
     return (
       <Wrapper ref={ref} {...props}>
         <Inner
-          className="inner"
           maxWidth={maxWidth}
           flexDirection={flexDirection}
           justifyContent={justifyContent}
