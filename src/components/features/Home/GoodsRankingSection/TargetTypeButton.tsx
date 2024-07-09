@@ -3,16 +3,12 @@ import styled from '@emotion/styled';
 type Props = {
   value?: 'ALL' | 'FEMALE' | 'MALE' | 'TEEN';
   selected: boolean;
-  //   onClick: (target?: 'ALL' | 'FEMALE' | 'MALE' | 'TEEN') => void;
+  onClick: (target?: 'ALL' | 'FEMALE' | 'MALE' | 'TEEN') => void;
 };
 
-export const TargetTypeButton = ({ value, selected }: Props) => {
+export const TargetTypeButton = ({ value, selected, onClick }: Props) => {
   return (
-    <StyledTargetTypeButton
-    //   onClick={() => {
-    //     onClick(value);
-    //   }}
-    >
+    <StyledTargetTypeButton onClick={() => onClick(value)}>
       <Icon selected={selected}>{value}</Icon>
       <Text selected={selected}>전체</Text>
     </StyledTargetTypeButton>

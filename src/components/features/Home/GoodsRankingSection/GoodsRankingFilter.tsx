@@ -21,6 +21,7 @@ export const GoodsRankingFilter = () => {
             key={item}
             value={item as 'ALL' | 'FEMALE' | 'MALE' | 'TEEN'}
             selected={selectedTarget === item}
+            onClick={() => setSelectedTarget(item as 'ALL' | 'FEMALE' | 'MALE' | 'TEEN')}
           />
         ))}
       </TargetTypeContainer>
@@ -38,6 +39,9 @@ export const GoodsRankingFilter = () => {
             label={rank.label}
             value={rank.value as 'MANY_WISH' | 'MANY_RECEIVED' | 'MANY_WISH_RECEIVED'}
             selected={selectedRank === rank.value}
+            onClick={() =>
+              setSelectedRank(rank.value as 'MANY_WISH' | 'MANY_RECEIVED' | 'MANY_WISH_RECEIVED')
+            }
           />
         ))}
       </RankTypeContainer>

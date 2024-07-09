@@ -4,17 +4,12 @@ type Props = {
   label: string;
   value?: 'MANY_WISH' | 'MANY_RECEIVED' | 'MANY_WISH_RECEIVED';
   selected: boolean;
+  onClick: (value?: 'MANY_WISH' | 'MANY_RECEIVED' | 'MANY_WISH_RECEIVED') => void;
 };
 
-export const RankTypeButton = ({ label, value, selected }: Props) => {
+export const RankTypeButton = ({ label, value, selected, onClick }: Props) => {
   return (
-    <StyledRankTypeButton
-      value={value}
-      selected={selected}
-      //   onClick={() => {
-      //     onClick(value);
-      //   }}
-    >
+    <StyledRankTypeButton value={value} selected={selected} onClick={() => onClick(value)}>
       {label}
     </StyledRankTypeButton>
   );
