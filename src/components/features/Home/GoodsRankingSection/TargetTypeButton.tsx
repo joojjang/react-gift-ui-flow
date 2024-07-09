@@ -7,10 +7,36 @@ type Props = {
 };
 
 export const TargetTypeButton = ({ value, selected, onClick }: Props) => {
+  const getTargetIcon = (targetValue?: 'ALL' | 'FEMALE' | 'MALE' | 'TEEN') => {
+    switch (targetValue) {
+      case 'FEMALE':
+        return '👩🏻‍🦳';
+      case 'MALE':
+        return '👨🏻‍🦳';
+      case 'TEEN':
+        return '👦🏻';
+      default:
+        return 'ALL';
+    }
+  };
+
+  const getTargetText = (targetValue?: 'ALL' | 'FEMALE' | 'MALE' | 'TEEN') => {
+    switch (targetValue) {
+      case 'FEMALE':
+        return '여성이';
+      case 'MALE':
+        return '남성이';
+      case 'TEEN':
+        return '청소년이';
+      default:
+        return '전체';
+    }
+  };
+
   return (
     <StyledTargetTypeButton onClick={() => onClick(value)}>
-      <Icon selected={selected}>{value}</Icon>
-      <Text selected={selected}>전체</Text>
+      <Icon selected={selected}>{getTargetIcon(value)}</Icon>
+      <Text selected={selected}>{getTargetText(value)}</Text>
     </StyledTargetTypeButton>
   );
 };
